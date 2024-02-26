@@ -1,0 +1,85 @@
+
+    <section class="main-exchange-container">
+        <div class="backgroundImg"></div>
+        <div class="main-exchange-container--title">
+          <h2>Visibilizamos todas las tasas de cambio.</h2>
+          <p>
+            Traemos información en tiempo real de las casas de cambio y las
+            monedas más importantes del mundo.
+          </p>
+        </div>
+        <div class="container">
+          
+        </div>
+         <div class="main-tables-container">
+          <div class="main-currency-table">
+            <p class="currency-table--title">Monedas</p>
+            <div class="container-fluid">
+                <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let item of allCoin" (click)="verCoin(item.id)"> 
+                      <td class="table__top-left">{{item.name}}</td>
+                      <td class="table__top-right table__right">
+                        {{item.price_usd}}
+                        <span *ngIf="item.percent_change_1h > 0; else elseBlock">
+                          <img src="assets/icons/trending-up.svg" alt="">
+                        </span>
+                          <ng-template #elseBlock>
+                            <img src="assets/icons/trending-down.svg" alt="">
+                          </ng-template>
+                      </td>
+                    </tr>  
+                  </tbody>
+                </table>
+            </div>
+            <div class="currency-table--date">             
+            </div>
+          </div>         
+        </div>
+    </section>
+    <div class="row">
+      <div [hidden]="OcultarCard" class="container">
+        <section class="main-product-detail">  
+          <div class="product-detail--title">
+            <h2>Comportamiento</h2>
+            <p>Información detallada de la cryptomoneda.</p>
+          </div>
+          <div class="product-cards--container">
+            <article class="product-detail--card">             
+              <p class="product--card_title">Nombre</p>
+              <p class="product--card_body">
+                <span id="cardTitle"></span>
+              </p>
+            </article>
+            <article class="product-detail--card">             
+              <p class="product--card_title">Ranking</p>
+              <p class="product--card_body">
+                <span id="rankCoin"></span>
+              </p>
+            </article>
+            <article class="product-detail--card">             
+              <p class="product--card_title">Simbolo</p>
+              <p class="product--card_body">
+                <span id="simboloCoin"></span>
+              </p>
+            </article>
+            <article class="product-detail--card">
+              <p class="product--card_title">Valor en el mercado</p>
+              <p class="product--card_body">
+                <span id="valorCoin"></span>
+              </p>
+            </article>
+          </div>
+          <br>
+          <br>
+        </section>
+      </div>
+    </div>
+    
+  
